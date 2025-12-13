@@ -18,6 +18,7 @@ Content-Type: application/json
 ### Crear usuario
 ### Para crear el primer usuario, no es necesario autenticarse
 POST http://localhost/api-flight/usuarios
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjYxNTIsIm5iZiI6MTc2NTY2NjE1MiwiZXhwIjoxNzY1NjY5NzUyLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.2hOG0FGcgk3xCAIhVKRz8I0I63_kMaOzja23rqf94NM
 Content-Type: application/json
 
 {
