@@ -1,0 +1,116 @@
+### Para usar este archivo, debes tener instalada la extensión REST Client
+###
+### Si acabas de iniciar el proyecto, lo primero que debes es crear un usuario
+### Ese usuario será el admin
+### Una vez creado el admin, te autenticas para generar el token
+### El token generado lo reemplazas en la cabecera Authorizacion
+### Authorization: Bearer <TOKEN>
+
+### Autenticación
+POST http://localhost/api-flight/auth
+Content-Type: application/json
+
+{
+	"correo": "admin@gmail.com",
+	"contrasena": "Mi_contraseña.1234"
+}
+
+### Crear usuario
+POST http://localhost/api-flight/usuarios
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"nombre": "Admin",
+	"telefono": "00000000000",
+	"correo": "admin@gmail.com",
+	"contrasena": "Mi_contraseña.1234"
+}
+
+### Todos los usuarios
+GET http://localhost/api-flight/usuarios
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Un solo usuario
+GET http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Un solo usuario
+GET http://localhost/api-flight/usuarios/1
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Usuario no encontrado
+GET http://localhost/api-flight/usuarios/0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Editar usuario
+PUT http://localhost/api-flight/usuarios/3
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"nombre": "Mi nombre modificado",
+	"telefono": "04241234567",
+	"correo": "mi_correo@gmail.com",
+	"contrasena": "Mi_contraseña.123"
+}
+
+### Editar usuario
+PUT http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"nombre": "Mi nombre modificado otra vez"
+}
+
+### Editar usuario
+PUT http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"telefono": "04241234567"
+}
+
+### Editar usuario
+PUT http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"correo": "mi_correo@gmail.com"
+}
+
+### Editar usuario
+PUT http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"contrasena": "Mi_contraseña.123"
+}
+
+### Editar usuario (sin parámetros)
+PUT http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Editar usuario no encontrado
+PUT http://localhost/api-flight/usuarios/0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+Content-Type: application/json
+
+{
+	"nombre": "Mi nombre modificado",
+	"telefono": "04241234567",
+	"correo": "mi_otro_correo@gmail.com"
+}
+
+### Borrar usuario
+DELETE http://localhost/api-flight/usuarios/2
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
+### Borrar usuario no encontrado
+DELETE http://localhost/api-flight/usuarios/0
+Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpYXQiOjE3NjU2NjAzNDMsIm5iZiI6MTc2NTY2MDM0MywiZXhwIjoxNzY1NjYzOTQzLCJkYXRhIjp7ImlkIjoxLCJyb2wiOiJhZG1pbiJ9fQ.Fxn2GEFysu6KsHGFh2eTOo14cI6-Ub2yEr-4mBJ5n4Y
+
