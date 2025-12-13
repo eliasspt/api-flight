@@ -77,7 +77,7 @@ Una API REST robusta y ligera para la gestión de usuarios, construida con **Fli
   * **Admin:** Puede listar todos los usuarios, ver cualquier perfil, editar cualquier campo (incluyendo el rol de otros) y borrar cualquier cuenta (excepto la propia).
   * **User:** Solo puede ver y editar su propio perfil. No puede visualizar la lista completa de usuarios ni cambiar su propio rol a administrador.
 
-### ¿Cómo probarlo?
+## ¿Cómo probarlo?
 
 Puedes usar archivos `.http` en VS Code, Postman o Insomnia. Recuerda incluir el token en el encabezado de autorización para las rutas protegidas:
 `Authorization: Bearer TU_JWT_AQUI`
