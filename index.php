@@ -108,7 +108,7 @@
 
   // Registro de la conexión PDO en el motor de Flight
   Flight::register('db', 'PDO', [
-    "mysql:host={$_ENV['DB_HOST']};dbname={$_ENV['DB_NAME']};charset=utf8mb4",
+    "mysql:host={$_ENV['DB_HOST']};port={$_ENV['DB_PORT']};dbname={$_ENV['DB_NAME']};charset=utf8mb4",
     $_ENV['DB_USER'],
     $_ENV['DB_PASS'],
     [
@@ -172,8 +172,10 @@
   function crearUsuario() {
     $db = Flight::db();
     $req = Flight::request()->data;
+
+    $primerUsuario = totalUsuarios() === 0;
     
-    if (totalUsuarios()) {
+    if (!$primerUsuario) {
       // Si ya hay usuarios, verificamos quién está intentando crear este nuevo registro
       $usuarioLogueado = getTokenData();
       if ($usuarioLogueado->rol === 'admin') {
@@ -201,7 +203,7 @@
     $query = $db->prepare('INSERT INTO usuarios (nombre, telefono, correo, contrasena, rol) VALUES (?, ?, ?, ?, ?)');
     $query->execute([$req->nombre, $req->telefono, $req->correo, $passHash, $rol]);
     
-    obtenerUsuario($db->lastInsertId(), 201);
+    obtenerUsuario($db->lastInsertId(), 201, $primerUsuario);
   }
 
   /**
@@ -227,8 +229,9 @@
    * Obtiene detalles de un usuario por ID.
 	 * Protege para que solo el dueño o el admin lo vean
    */
-  function obtenerUsuario($id, $status = 200) {
-    verificarPermiso($id); // Protege para que solo el dueño o el admin lo vean
+  function obtenerUsuario($id, $status = 200, $primerUsuario = false) {
+    if (!$primerUsuario) verificarPermiso($id);
+    
     $db = Flight::db();
     $query = $db->prepare('SELECT id, nombre, telefono, correo, actualizado, registrado FROM usuarios WHERE id = ?');
     $query->execute([$id]);
