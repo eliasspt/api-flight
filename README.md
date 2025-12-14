@@ -29,7 +29,11 @@ Una API REST robusta y ligera para la gestión de usuarios, construida con **Fli
 2.  **Instalar dependencias:**
 
     ```bash
-    composer install
+    composer require flightphp/core
+    ```
+    
+    ```bash
+    composer require firebase/php-jwt
     ```
 
 3.  **Configurar variables de entorno:**
